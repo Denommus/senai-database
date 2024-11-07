@@ -32,7 +32,10 @@
             pythonEnv = python.withPackages arg;
           in
           pkgs.mkShell {
-            packages = [ pythonEnv ];
+            packages = [
+              pythonEnv
+              pkgs.python312Packages.python-lsp-server
+            ];
           };
 
         package =
