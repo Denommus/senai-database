@@ -9,6 +9,7 @@ dependencies = [
   "numpy",
   "scikit-learn",
   "matplotlib",
+  "seaborn",
 ]
 
 [project.scripts]
