@@ -35,6 +35,7 @@
             packages = [
               pythonEnv
               pkgs.python312Packages.python-lsp-server
+              pkgs.mariadb-client
             ];
           };
 
