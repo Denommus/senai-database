@@ -48,17 +48,22 @@ CREATE TABLE IF NOT EXISTS shows
        ( show_id VARCHAR(255) NOT NULL
        , type_id INT(11) NOT NULL
        , title VARCHAR(255) NOT NULL
-       , country_id INT(11) NOT NULL
        , date_added DATE NOT NULL
        , release_year INT(11) NOT NULL
-       , rating_id INT(11) NOT NULL
+       , rating_id INT(11)
        , duration VARCHAR(255) NOT NULL
        , description VARCHAR(1023) NOT NULL
        , PRIMARY KEY (show_id)
        , FOREIGN KEY (type_id) REFERENCES show_types (type_id)
-       , FOREIGN KEY (country_id) REFERENCES countries (country_id)
        , FOREIGN KEY (rating_id) REFERENCES ratings (rating_id)
        , INDEX (title, release_year)
+       );
+
+CREATE TABLE IF NOT EXISTS country_show
+       ( country_id INT(11) NOT NULL
+       , show_id VARCHAR(255) NOT NULL
+       , FOREIGN KEY (country_id) REFERENCES countries (country_id)
+       , FOREIGN KEY (show_id) REFERENCES shows (show_id)
        );
 
 CREATE TABLE IF NOT EXISTS actor_show
