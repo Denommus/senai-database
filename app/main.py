@@ -41,6 +41,11 @@ def main():
                 else:
                     countries = []
 
+                if row['listed_in'] and isinstance(row['listed_in'], str):
+                    categories = row['listed_in'].split(', ')
+                else:
+                    categories = []
+
 
 if __name__ == "__main__":
     main()
